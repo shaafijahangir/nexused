@@ -9,7 +9,7 @@ import { AppService } from './app.service';
 import appConfig from './config/app.config';
 import databaseConfig from './config/database.config';
 import authConfig from './config/auth.config';
-import * as entities from './database/entities';
+import { entities } from './database/entities';
 
 @Module({
   imports: [
@@ -27,7 +27,7 @@ import * as entities from './database/entities';
         password: configService.get('database.password'),
         database: configService.get('database.database'),
         schema: configService.get('database.schema'),
-        entities: Object.values(entities),
+        entities: entities,
         synchronize: configService.get('database.synchronize'),
         logging: configService.get('database.logging'),
       }),
