@@ -23,7 +23,7 @@ async function bootstrap() {
   );
 
   // API prefix
-  app.setGlobalPrefix(configService.get('app.apiPrefix'));
+  app.setGlobalPrefix(configService.get<string>('app.apiPrefix') || 'api');
 
   const port = configService.get('app.port');
   await app.listen(port);
